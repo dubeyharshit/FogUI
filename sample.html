@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Fog Computing</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.43/js/bootstrap-datetimepicker.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.43/css/bootstrap-datetimepicker.min.css">
+    <link href="sample.css" rel="stylesheet" type="text/css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB9ylPGpaLoNaPssPuTrq4Hc9LVblQcLV0&signed_in=true&libraries=places,visualization&callback=initialize" async defer></script>
+    <script src="geolocation.js"> </script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('#datetimepicker1').datetimepicker();
+        });
+    </script>
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <p class="navbar-brand" style="color: black"><b>Fog Computing</b></p>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="sample.html" style="color: black"><b>Dashboard</b></a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid" >
+    <div class="row">
+            <div class="col-lg-4" id="pathsearch" >
+            <form class="form1" >
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+                    <input id="origin-input" type="text" class="form-control" name="origin-input" placeholder="Source">
+                </div>
+
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-road"></i></span>
+                    <input id="destination-input" type="text" class="form-control" required="true" name="destination-input" placeholder="Destination">
+                </div>
+                <div id="floating-panel">
+                    <b>Mode of Travel: </b>
+                    <select id="mode">
+                        <option value="DRIVING">Driving</option>
+                        <option value="BICYCLING">Bicycling</option>
+                    </select>
+                </div>
+                <label><input type="checkbox" id="cbox1" value="first_checkbox" > Click To Enter Future Date</label>
+                <br>
+                <div class='input-group date' id='datetimepicker1' style="display: none">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                    <input type='datetime' class="form-control" id="futureDate"/>
+                </div>
+
+                <br>
+                <button type="button" class="btn btn-primary" onClick="getRoute()">Find Routes</button>
+                <button type="button" class="btn btn-primary" onClick="clearBox()">Refresh</button>
+            </form>
+                <br>
+                <div id="pageButtons">
+                </div>
+                <br>
+                <p id = "distance" style = "font-size: 20px;color: black"></p>
+                <p id = "duration" style = "font-size: 20px;color: black"></p>
+        </div>
+        <div class="col-lg-8" id = "routenavigation">
+            <br>
+            <div id="map">
+            </div>
+            <div id="directions_panel"></div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid" id = footer>
+    <div class="row" style="text-align:center">
+        <p> <b>&copy; San Jose State University</b></p>
+    </div>
+</div>
+</body>
+</html>

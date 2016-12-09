@@ -1,0 +1,38 @@
+
+/* Remove the navbar's default margin-bottom and rounded borders */
+.navbar {
+    margin-bottom: 0;
+    border-radius: 0;
+    /*background-color: #a7cdf2;*/
+    background-color: dodgerblue;
+}
+
+/* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+
+/* Set gray background color and 100% height */
+#pathsearch {
+    padding-top: 20px;
+    background-color: white;
+    height: 550px;
+}
+
+.form1 > * {
+    margin:10px;
+}
+
+#routenavigation
+{
+    background-color: grey;
+    background-image: url("1.jpg");
+    height: 550px;
+}
+
+#map {
+    width: 100%;
+    height: 525px;
+}
+
+#footer{
+    background-color: dodgerblue;
+    height: 50px;
+}
